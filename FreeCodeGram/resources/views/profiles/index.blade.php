@@ -22,9 +22,9 @@
 			@endcan
 			<div class="d-flex">
 			
-				<div class="pr-3"><strong>{{ $user->posts->count() }} </strong>Posts</div>
-				<div class="pr-3"><strong>3 </strong>Followers</div>
-				<div class="pr-3"><strong>4 </strong>Following</div>
+				<div class="pr-3"><strong>{{ $postCount }} </strong>Posts</div>
+				<div class="pr-3"><strong>{{ $followerCount }}</strong> Followers</div>
+				<div class="pr-3"><strong>{{ $followingCount }} </strong>Following</div>
 			</div>
 			<div class="pt-4 font-weight-bold">{{  $user->profile->title }}</div> 
 			<div>{{ $user->profile->description }}</div> 
@@ -34,11 +34,11 @@
 
 <div class="row pt-2">
 		@foreach($user->posts as $post)
-		<div class="col-4 pb-2">
-		<a href="/p/{{$post->id}}">
-			<img src="/storage/{{ $post->image }}" class="w-100">
-		</a>	
-		</div>
+			<div class="col-4 pb-2">
+				<a href="/p/{{$post->id}}">
+					<img src="/storage/{{ $post->image }}" class="w-100">
+				</a>	
+			</div>
 		@endforeach
 </div>
 </div>

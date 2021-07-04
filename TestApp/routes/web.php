@@ -15,12 +15,19 @@ use App\Http\Controllers\UserController;
 |
 */
 //Owner, Customer
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
+
+Route::get('/buy', function () {
+    return "Working?";
+})->middleware('can:buy');
+//Will be redirected here if you have the permission to buy
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('home');
+
+

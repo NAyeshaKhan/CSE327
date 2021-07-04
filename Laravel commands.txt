@@ -1,7 +1,7 @@
 >>laravel new P1
 
->>composer require laravel/ui
->>php artisan ui vue --auth
+>>composer require laravel/ui --HAS ALL ILLUMINATE CLASSES
+>>php artisan ui vue --auth  //add login controllers too
 >>npm install && npm run dev
 >>npm run dev
 -->create login and register
@@ -9,8 +9,11 @@
 >>copy con database\D1.sqlite 
   OR just edit .env for the mySQL database you craeted in phpAdmin
 
-ROLE PACKAGES
+ROLE PACKAGES :Do the authentication part first tho. Fix the namespaces
 =============
+
+https://www.learn2torials.com/a/laravel-authentication-based-on-roles
+
 >>composer require spatie/laravel-permission
 
 >>composer require laravelcollective/html

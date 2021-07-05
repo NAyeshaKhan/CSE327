@@ -25,4 +25,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function isUser() {
        return $this->role === 'user';
     }
+	
+	public function profile(){
+		return $this->hasOne(Profile::class);
+		
+	}
 }

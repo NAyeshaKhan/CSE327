@@ -24,9 +24,10 @@ Route::group(['middleware' => ['auth', 'user'], 'prefix' => 'user'], function ()
 
 // admin protected routes
 Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
-    Route::get('/', 'HomeController@index')->name('admin_dashboard');
+    Route::get('/admin', 'HomeController@adminpg')->name('admin_dashboard');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');

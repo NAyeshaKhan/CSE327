@@ -33,6 +33,11 @@ DO AFTER AUTHENTICATION HAS BEEN INSTALLED
 Add fields that will be on top of the authentication ones. Add them to users table's fillable path as well.
 
 
+>>php artisan make:controller Students/ClassController --resource
+>>php artisan make:controller Teachers/ClassController --resource
+>>php artisan make:controller Admin/UserController --resource
+>>php artisan make:middleware CheckRole
+
 ROLE PACKAGES :Do the authentication part first tho. Fix the namespaces
 =============
 

@@ -1,13 +1,37 @@
 >>laravel new P1
 
+Authentication(Basic)
+=====================
 >>composer require laravel/ui --HAS ALL ILLUMINATE CLASSES
 >>php artisan ui vue --auth  //add login controllers too
 >>npm install && npm run dev
 >>npm run dev
 -->create login and register
 
+DB
+==
 >>copy con database\D1.sqlite 
   OR just edit .env for the mySQL database you craeted in phpAdmin
+
+Authenication:login registration
+authorization: Who is allowed to do what
+
+Jetstream: https://www.youtube.com/watch?v=NiQSNjWKLfU
+DO AFTER AUTHENTICATION HAS BEEN INSTALLED
+=========
+>>composer require laravel/jetstream
+>>php artisan jetstream:install livewire
+>>npm install
+>>npm run dev
+>>php artisan migrate
+
+>>php artisan make:model Role -m
+>>php artisan make:seeder RoleSeeder 
+>>php artisan make:migration add_roles_fields_to_users_table
+>>php artisan migrate
+
+Add fields that will be on top of the authentication ones. Add them to users table's fillable path as well.
+
 
 ROLE PACKAGES :Do the authentication part first tho. Fix the namespaces
 =============

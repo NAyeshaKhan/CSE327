@@ -1,4 +1,5 @@
 >>laravel new P1
+*Note: The migration tables are for creating the fields only. Once that is over, they won't affect the DB
 
 Authentication(Basic)
 =====================
@@ -26,17 +27,31 @@ DO AFTER AUTHENTICATION HAS BEEN INSTALLED
 >>php artisan migrate
 
 >>php artisan make:model Role -m
->>php artisan make:seeder RoleSeeder 
+>>php artisan make:seeder RoleSeeder
 >>php artisan make:migration add_roles_fields_to_users_table
 >>php artisan migrate
 
+files to be modified:
+add_roles_fields_to_users_table
+User
+register.blade
+CreateNewUser
+
 Add fields that will be on top of the authentication ones. Add them to users table's fillable path as well.
+Don't use a constrained data field here!!
 
-
->>php artisan make:controller Students/ClassController --resource
->>php artisan make:controller Teachers/ClassController --resource
+>>php artisan make:controller Students/LessonController --resource
+>>php artisan make:controller Teachers/CourseController --resource
 >>php artisan make:controller Admin/UserController --resource
 >>php artisan make:middleware CheckRole
+
+
+Laravel Breeze  https://masteringbackend.com/posts/multiple-role-based-authentications/
+==============
+>>composer require laravel/breeze --dev   THIS IS FOR AUTH SCAFFOLDING
+>>php artisan breeze:install
+>>npm run install
+>>npm run dev
 
 ROLE PACKAGES :Do the authentication part first tho. Fix the namespaces
 =============
@@ -57,3 +72,24 @@ config/app.php
 ],
 
 >>php artisan migrate
+
+
+PHP TINKER
+==========
+
+>>$user= new \App\Models\User();
+=> App\Models\User {#3421}
+>> $user->name="Ray";
+>> $user->email="Ray@email.com";
+>> $user->password="AAAAAAAA";
+>> $role= \App\Models\Role::find(1);
+>> $role= \App\Models\Role::find(2);
+>> $user->id
+>> $user->save();
+>> $user->assignRole($role);
+>> $able= \App\Models\Ability::find(2);
+>> $role->allowTo($able);
+>> $role->save();
+>> $user->assignRole($role);
+>> $user->save();
+  

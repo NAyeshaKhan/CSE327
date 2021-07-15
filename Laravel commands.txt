@@ -1,6 +1,34 @@
 >>laravel new P1
 *Note: The migration tables are for creating the fields only. Once that is over, they won't affect the DB
 
+For M-to-M, it might be better to use $table->foreign('user_id')->references('id')->on('users'); instead of $table->index()
+
+TINKER
+======
+// find a specific user and see their attributes
+App\User::where('username', 'dillon')->first();
+
+// Retreiving relationship of a user and the relationship type 
+>>> $user->address();
+=> Illuminate\Database\Eloquent\Relations\HasMany {#678}
+
+// Retrieving inherited data
+>>> $user->address;
+=> Illuminate\Database\Eloquent\Collection {#699
+     all: [
+       App\Address {#702
+         id: 1,
+         user_id: 1,
+         street_address: "68 Dame Street",
+         suburb: "Inner City",
+         town: "Dublin",
+         postcode: "493857",
+         country: "Ireland",
+         created_at: "2017-02-19 21:44:28",
+         updated_at: "2017-02-19 21:44:28",
+       },
+     ],
+   }
 Authentication(Basic)
 =====================
 >>composer require laravel/ui --HAS ALL ILLUMINATE CLASSES

@@ -2,7 +2,7 @@
 *Note: The migration tables are for creating the fields only. Once that is over, they won't affect the DB
 
 For 1-to-M: hasMany<=>belongsToOne
-For 1-to-1: hasOne,=>belongsTo
+For 1-to-1: hasOne=>belongsTo
 	These relations need foreign IDs in migration tables
 For M-to-M : belongsToMany<=>belongsToMany
         This relation doesn't have foreign ID in migrations, but needs a pivot table with $table->foreign('user_id')->references('id')->on('users'); or $table->foreignId(index)->constrained(); for each table involved.

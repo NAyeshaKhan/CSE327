@@ -1,0 +1,8 @@
+your blade files should refer to the urls in your web.php routes.
+$user->orders, Laravel hits the orders() function and knows by looking at it that there’s a foreign key on the orders table. Then, it kinda does a SELECT * FROM orders WHERE user_id = 23 and returns the query results as a collection. 
+
+https://www.youtube.com/watch?v=Ny-mloJuoAI : emails
+https://www.youtube.com/watch?v=eD4yMI-IR8g&list=PLpzy7FIRqpGC8Jk6gyWdSVdxCVXZAsenQ
+https://www.youtube.com/watch?v=kZOgH3-0Bko: roles
+
+The user controller will call for the function showProfile with parameter as profile. The parameters use name method onto the route definition.

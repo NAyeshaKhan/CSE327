@@ -1,0 +1,32 @@
+cd summer21.cse327.1.6\Laravel\ReadApp
+
+create and store functions must be one after another, BEFORE any show or edit functions
+
+<x-jet> submits properties. <x-jet-> prefix is just a jetstream thing, if it's an inconvenience, you can replace it with regular input labes like those in html, and it should be fine.
+
+To add any field to users table, make a migration as add_field_to_users_table and add the field there, then put it in User.php's fillable properties. Why can't we add it directly to user table's migration tho??
+
+For Login using socialite stuff, follow:
+https://stackoverflow.com/questions/30240840/laravel-5-socialite-curl-error-77-error-setting-certificate-verify-locations  ::VERY IMP FOR IT TO WORK!!
+https://www.cloudways.com/blog/social-login-in-laravel-using-socialite/
+https://stackoverflow.com/questions/30660847/laravel-socialite-invalidstateexception
+
+   /*$studentPost = DB::select( DB::raw(
+            "SELECT      *
+                        FROM        `posts`
+                        INNER JOIN  `course_student` ON `course_student`.course_id = `posts`.course_id
+                        WHERE       `course_student`.user_id = :user"), array('user'=>$user));*/
+     
+
+When updating anything of user, if you want these fields filled with the previous data user gave, go ToUpdateUserProfileInfo.php, and add the field you want to keep filled in $user->forceFill
+
+For views, all you can customize is what's in views folder. The routes in navbar are what you should access to get to a file in particular.
+Make controller for the views
+
+You can define a route to this controller method like so:
+
+use App\Http\Controllers\UserController;
+
+Route::get('/user/{id}', [UserController::class, 'show']);
+
+When an incoming request matches the specified route URI, the show method on the App\Http\Controllers\UserController class will be invoked and the route parameters will be passed to the method.

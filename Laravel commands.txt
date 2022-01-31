@@ -22,10 +22,10 @@ DB
 --> for sqlite DB
   OR: edit .env for the mySQL database you created in phpAdmin
 
-Authenication:login registration
+Authentication:login registration
 authorization: Who is allowed to do what
 
-Jetstream: https://www.youtube.com/watch?v=NiQSNjWKLfU
+					Jetstream: https://www.youtube.com/watch?v=NiQSNjWKLfU
 
 DO AFTER AUTHENTICATION HAS BEEN INSTALLED
 =========
@@ -34,6 +34,10 @@ DO AFTER AUTHENTICATION HAS BEEN INSTALLED
 >>npm install
 >>npm run dev
 >>php artisan migrate
+
+config/auth
+
+
 
 >>php artisan make:model Role -m
 >>php artisan make:seeder RoleSeeder

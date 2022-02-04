@@ -35,17 +35,14 @@ DO AFTER AUTHENTICATION HAS BEEN INSTALLED
 >>npm run dev
 >>php artisan migrate
 
-config/auth
-
-
-
 >>php artisan make:model Role -m
 >>php artisan make:seeder RoleSeeder
 >>php artisan make:migration add_roles_fields_to_users_table
 >>php artisan migrate
 
-
 Add fields that will be on top of the authentication ones. Add them to users table's fillable path as well. Don't use a constrained data field here!!
+Add role_id to app/Actions/Fortify/CreateNewUser
+
 
 >>php artisan make:controller Students/LessonController --resource
 >>php artisan make:controller Teachers/CourseController --resource
